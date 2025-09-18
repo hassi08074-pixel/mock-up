@@ -1,0 +1,75 @@
+{
+  "id": "template-dx-readiness",
+  "name": "DX Readiness Quick Check",
+  "description": "Assess how prepared your organization is to execute its digital transformation roadmap.",
+  "scenario": {
+    "firstStepId": "q1",
+    "steps": {
+      "q1": {
+        "id": "q1",
+        "title": "Current Strategy",
+        "prompt": "Which statement best describes your current digital transformation strategy?",
+        "type": "multiple_choice",
+        "choices": [
+          { "id": "leader", "label": "We have a funded roadmap and are executing", "nextStepId": "q2" },
+          { "id": "in_progress", "label": "We are building the business case now", "nextStepId": "q2" },
+          { "id": "laggard", "label": "We are still exploring what to do", "nextStepId": "q2" }
+        ],
+        "defaultNextStepId": "q2"
+      },
+      "q2": {
+        "id": "q2",
+        "title": "Key Challenge",
+        "prompt": "Describe the biggest blocker slowing your transformation today.",
+        "type": "text",
+        "branchingRules": [
+          { "type": "keyword", "keywords": ["integration", "legacy", "system"], "nextStepId": "q3_integration" },
+          { "type": "keyword", "keywords": ["talent", "skills", "hiring"], "nextStepId": "q3_talent" }
+        ],
+        "defaultNextStepId": "q3_general"
+      },
+      "q3_integration": {
+        "id": "q3_integration",
+        "title": "Integration Strategy",
+        "prompt": "How are you planning to resolve the integration challenges?",
+        "type": "multiple_choice",
+        "choices": [
+          { "id": "manual", "label": "Manual processes for now" },
+          { "id": "plan", "label": "Budget approved for integration platform" },
+          { "id": "unsure", "label": "Still researching options" }
+        ],
+        "defaultNextStepId": null,
+        "isTerminal": true
+      },
+      "q3_talent": {
+        "id": "q3_talent",
+        "title": "Talent Investments",
+        "prompt": "Which talent initiative is the highest priority this quarter?",
+        "type": "multiple_choice",
+        "choices": [
+          { "id": "outsourcing", "label": "Partnering with external specialists" },
+          { "id": "investing", "label": "Investing heavily in training" },
+          { "id": "hiring", "label": "Accelerating hiring" }
+        ],
+        "defaultNextStepId": null,
+        "isTerminal": true
+      },
+      "q3_general": {
+        "id": "q3_general",
+        "title": "Execution Rhythm",
+        "prompt": "How do you keep stakeholders aligned during transformation initiatives?",
+        "type": "multiple_choice",
+        "choices": [
+          { "id": "ad_hoc", "label": "We address issues ad hoc" },
+          { "id": "structured", "label": "We run structured steering meetings" },
+          { "id": "pending", "label": "We are introducing governance soon" }
+        ],
+        "defaultNextStepId": null,
+        "isTerminal": true
+      }
+    }
+  },
+  "scoringConfig": "config/scoring/dx-readiness.json",
+  "createdAt": "2024-03-01T00:00:00.000Z",
+  "updatedAt": "2024-03-01T00:00:00.000Z"
+}

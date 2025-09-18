@@ -1,0 +1,75 @@
+{
+  "templateId": "template-marketing-funnel",
+  "scores": [
+    {
+      "name": "funnel_balance",
+      "label": "Funnel Balance",
+      "maxScore": 100,
+      "rules": [
+        {
+          "id": "funnel-volume-surplus",
+          "type": "choice",
+          "stepId": "q1",
+          "choiceId": "surplus",
+          "weight": 30,
+          "description": "Lead generation is ahead of plan"
+        },
+        {
+          "id": "funnel-top-content",
+          "type": "choice",
+          "stepId": "q3_top",
+          "choiceId": "content",
+          "weight": 20,
+          "description": "Content & SEO are primary levers"
+        },
+        {
+          "id": "funnel-middle-automation",
+          "type": "choice",
+          "stepId": "q3_middle",
+          "choiceId": "automation",
+          "weight": 20,
+          "description": "Automated nurturing is in place"
+        },
+        {
+          "id": "funnel-bottom-case",
+          "type": "choice",
+          "stepId": "q3_bottom",
+          "choiceId": "case_studies",
+          "weight": 30,
+          "description": "Strong enablement assets available"
+        }
+      ]
+    },
+    {
+      "name": "growth_urgency",
+      "label": "Growth Urgency",
+      "maxScore": 60,
+      "rules": [
+        {
+          "id": "urgency-behind",
+          "type": "choice",
+          "stepId": "q1",
+          "choiceId": "behind",
+          "weight": 30,
+          "description": "Lead volume is behind plan"
+        },
+        {
+          "id": "urgency-keyword-nurture",
+          "type": "keyword",
+          "stepId": "q2",
+          "keywords": ["nurture", "follow", "handoff"],
+          "weight": 20,
+          "description": "Handoffs between stages cause friction"
+        },
+        {
+          "id": "urgency-keyword-budget",
+          "type": "keyword",
+          "stepId": "q2",
+          "keywords": ["budget", "approval", "stakeholder"],
+          "weight": 20,
+          "description": "Budget approvals stall deals"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "templateId": "template-dx-readiness",
+  "scores": [
+    {
+      "name": "dx_fit",
+      "label": "DX Fit Score",
+      "maxScore": 100,
+      "rules": [
+        {
+          "id": "dx-fit-leader",
+          "type": "choice",
+          "stepId": "q1",
+          "choiceId": "leader",
+          "weight": 40,
+          "description": "Has a funded roadmap and execution discipline"
+        },
+        {
+          "id": "dx-fit-plan",
+          "type": "choice",
+          "stepId": "q3_integration",
+          "choiceId": "plan",
+          "weight": 20,
+          "description": "Has an approved integration platform plan"
+        },
+        {
+          "id": "dx-fit-investing",
+          "type": "choice",
+          "stepId": "q3_talent",
+          "choiceId": "investing",
+          "weight": 20,
+          "description": "Investing heavily in upskilling the team"
+        },
+        {
+          "id": "dx-fit-structured",
+          "type": "choice",
+          "stepId": "q3_general",
+          "choiceId": "structured",
+          "weight": 20,
+          "description": "Maintains a structured governance rhythm"
+        }
+      ]
+    },
+    {
+      "name": "dx_urgency",
+      "label": "Transformation Urgency",
+      "maxScore": 60,
+      "rules": [
+        {
+          "id": "dx-urgency-laggard",
+          "type": "choice",
+          "stepId": "q1",
+          "choiceId": "laggard",
+          "weight": 30,
+          "description": "Still exploring options"
+        },
+        {
+          "id": "dx-urgency-growth",
+          "type": "keyword",
+          "stepId": "q2",
+          "keywords": ["scale", "growth", "revenue"],
+          "weight": 30,
+          "description": "Needs transformation to unlock growth"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "template-marketing-funnel",
+  "name": "Marketing Funnel Pulse Check",
+  "description": "Understand which stage of your funnel needs the most attention.",
+  "scenario": {
+    "firstStepId": "q1",
+    "steps": {
+      "q1": {
+        "id": "q1",
+        "title": "Lead Volume",
+        "prompt": "How would you describe inbound lead volume this quarter?",
+        "type": "multiple_choice",
+        "choices": [
+          { "id": "surplus", "label": "We have more leads than capacity", "nextStepId": "q2" },
+          { "id": "on_target", "label": "We are on target", "nextStepId": "q2" },
+          { "id": "behind", "label": "We are behind plan", "nextStepId": "q2" }
+        ],
+        "defaultNextStepId": "q2"
+      },
+      "q2": {
+        "id": "q2",
+        "title": "Conversion Constraint",
+        "prompt": "What is the biggest obstacle to moving prospects to the next stage?",
+        "type": "text",
+        "branchingRules": [
+          { "type": "keyword", "keywords": ["traffic", "awareness", "seo"], "nextStepId": "q3_top" },
+          { "type": "keyword", "keywords": ["nurture", "follow", "email"], "nextStepId": "q3_middle" }
+        ],
+        "defaultNextStepId": "q3_bottom"
+      },
+      "q3_top": {
+        "id": "q3_top",
+        "title": "Top of Funnel Focus",
+        "prompt": "Which growth lever is most promising right now?",
+        "type": "multiple_choice",
+        "choices": [
+          { "id": "paid", "label": "Scaling paid campaigns" },
+          { "id": "content", "label": "Investing in content & SEO" },
+          { "id": "community", "label": "Community or events" }
+        ],
+        "defaultNextStepId": null,
+        "isTerminal": true
+      },
+      "q3_middle": {
+        "id": "q3_middle",
+        "title": "Middle of Funnel Focus",
+        "prompt": "How do you currently nurture leads?",
+        "type": "multiple_choice",
+        "choices": [
+          { "id": "automation", "label": "Automated email journeys" },
+          { "id": "manual", "label": "Manual SDR follow-up" },
+          { "id": "sporadic", "label": "No consistent process" }
+        ],
+        "defaultNextStepId": null,
+        "isTerminal": true
+      },
+      "q3_bottom": {
+        "id": "q3_bottom",
+        "title": "Bottom of Funnel Focus",
+        "prompt": "What is the main reason opportunities stall?",
+        "type": "multiple_choice",
+        "choices": [
+          { "id": "case_studies", "label": "Lack of relevant case studies" },
+          { "id": "budget", "label": "Budget approvals" },
+          { "id": "timing", "label": "Timing or competing priorities" }
+        ],
+        "defaultNextStepId": null,
+        "isTerminal": true
+      }
+    }
+  },
+  "scoringConfig": "config/scoring/marketing-funnel.json",
+  "createdAt": "2024-03-01T00:00:00.000Z",
+  "updatedAt": "2024-03-01T00:00:00.000Z"
+}
