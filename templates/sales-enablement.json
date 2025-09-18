@@ -1,0 +1,75 @@
+{
+  "id": "template-sales-enablement",
+  "name": "Sales Enablement Effectiveness",
+  "description": "Gauge how well your enablement program supports account executives.",
+  "scenario": {
+    "firstStepId": "q1",
+    "steps": {
+      "q1": {
+        "id": "q1",
+        "title": "Playbook Usage",
+        "prompt": "How consistently do reps use your current playbooks?",
+        "type": "multiple_choice",
+        "choices": [
+          { "id": "always", "label": "Playbooks are the default", "nextStepId": "q2" },
+          { "id": "sometimes", "label": "Only our core team uses them", "nextStepId": "q2" },
+          { "id": "never", "label": "We rely on tribal knowledge", "nextStepId": "q2" }
+        ],
+        "defaultNextStepId": "q2"
+      },
+      "q2": {
+        "id": "q2",
+        "title": "Primary Bottleneck",
+        "prompt": "In one sentence, what slows deals down the most?",
+        "type": "text",
+        "branchingRules": [
+          { "type": "keyword", "keywords": ["content", "deck", "collateral"], "nextStepId": "q3_content" },
+          { "type": "keyword", "keywords": ["onboarding", "training", "enablement"], "nextStepId": "q3_coaching" }
+        ],
+        "defaultNextStepId": "q3_process"
+      },
+      "q3_content": {
+        "id": "q3_content",
+        "title": "Content Freshness",
+        "prompt": "How often is your collateral refreshed?",
+        "type": "multiple_choice",
+        "choices": [
+          { "id": "monthly", "label": "Monthly" },
+          { "id": "quarterly", "label": "Quarterly" },
+          { "id": "rarely", "label": "Only when someone complains" }
+        ],
+        "defaultNextStepId": null,
+        "isTerminal": true
+      },
+      "q3_coaching": {
+        "id": "q3_coaching",
+        "title": "Coaching Rhythm",
+        "prompt": "How do managers coach to deals today?",
+        "type": "multiple_choice",
+        "choices": [
+          { "id": "deal_review", "label": "Structured deal reviews weekly" },
+          { "id": "ad_hoc", "label": "Ad hoc when time allows" },
+          { "id": "shadowing", "label": "Ride-alongs or call shadowing" }
+        ],
+        "defaultNextStepId": null,
+        "isTerminal": true
+      },
+      "q3_process": {
+        "id": "q3_process",
+        "title": "Process Confidence",
+        "prompt": "How confident is the team in our qualification process?",
+        "type": "multiple_choice",
+        "choices": [
+          { "id": "confident", "label": "Very confident" },
+          { "id": "mixed", "label": "We use it but question the criteria" },
+          { "id": "unclear", "label": "It is rarely referenced" }
+        ],
+        "defaultNextStepId": null,
+        "isTerminal": true
+      }
+    }
+  },
+  "scoringConfig": "config/scoring/sales-enablement.json",
+  "createdAt": "2024-03-01T00:00:00.000Z",
+  "updatedAt": "2024-03-01T00:00:00.000Z"
+}

@@ -1,0 +1,14 @@
+/node_modules
+/dist
+/data/test-db.json
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage
+coverage
+
+# Env files
+.env

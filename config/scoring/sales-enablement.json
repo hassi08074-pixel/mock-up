@@ -1,0 +1,75 @@
+{
+  "templateId": "template-sales-enablement",
+  "scores": [
+    {
+      "name": "enablement_maturity",
+      "label": "Enablement Maturity",
+      "maxScore": 100,
+      "rules": [
+        {
+          "id": "enablement-playbook-always",
+          "type": "choice",
+          "stepId": "q1",
+          "choiceId": "always",
+          "weight": 40,
+          "description": "Playbooks are embedded in day-to-day execution"
+        },
+        {
+          "id": "enablement-content-monthly",
+          "type": "choice",
+          "stepId": "q3_content",
+          "choiceId": "monthly",
+          "weight": 30,
+          "description": "Collateral updated every month"
+        },
+        {
+          "id": "enablement-coaching-review",
+          "type": "choice",
+          "stepId": "q3_coaching",
+          "choiceId": "deal_review",
+          "weight": 30,
+          "description": "Structured deal reviews are standard"
+        },
+        {
+          "id": "enablement-process-confident",
+          "type": "choice",
+          "stepId": "q3_process",
+          "choiceId": "confident",
+          "weight": 30,
+          "description": "Team is confident in qualification process"
+        }
+      ]
+    },
+    {
+      "name": "intervention_urgency",
+      "label": "Intervention Urgency",
+      "maxScore": 60,
+      "rules": [
+        {
+          "id": "urgency-no-playbook",
+          "type": "choice",
+          "stepId": "q1",
+          "choiceId": "never",
+          "weight": 30,
+          "description": "Playbooks are rarely used"
+        },
+        {
+          "id": "urgency-content-gap",
+          "type": "choice",
+          "stepId": "q3_content",
+          "choiceId": "rarely",
+          "weight": 30,
+          "description": "Collateral rarely updated"
+        },
+        {
+          "id": "urgency-keyword-onboarding",
+          "type": "keyword",
+          "stepId": "q2",
+          "keywords": ["onboarding", "enablement", "training"],
+          "weight": 20,
+          "description": "Enablement capacity is a recurring theme"
+        }
+      ]
+    }
+  ]
+}
